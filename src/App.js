@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Importar componentes
 import Navbar from './components/Navbar';
@@ -54,33 +53,20 @@ function App() {
   }, []);
   
   return (
-    <Router>
-      <div className="page-wrapper">
-        <Navbar />
-        
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Hero />
-                <About />
-                <Projects />
-                <Skills />
-                <Certificates />
-                <Contact />
-              </>
-            } />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/certificates" element={<Certificates />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        
-        <Footer />
-      </div>
-    </Router>
+    <div className="page-wrapper">
+      <Navbar />
+      
+      <main className="main-content">
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Certificates />
+        <Contact />
+      </main>
+      
+      <Footer />
+    </div>
   );
 }
 
