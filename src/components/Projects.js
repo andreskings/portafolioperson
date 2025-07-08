@@ -79,20 +79,20 @@ const Projects = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Datos de proyectos
+  // Datos de proyectos - RUTAS DE IMÁGENES ARREGLADAS
   const projects = [
     {
       id: 1,
       title: "Aplicación de Gestión de Mantenimiento",
       description: "Una aplicación completa de gestión de mantenimiento enfocado en transportes.",
-      image: "/mantencionpro.jpeg",
+      image: `${process.env.PUBLIC_URL}/mantencionpro.jpeg`,
       technologies: ["React", "Node.js", "Firebase", "Cloudinary"],
       github: "https://github.com/mantencionpro/mantencionpro",
-      
+      link: "https://mantencionpro.web.app",
       gallery: [
-        "/mantencionpro.jpeg",
+        `${process.env.PUBLIC_URL}/mantencionpro.jpeg`,
         {
-          src: "/iniciopro.png",
+          src: `${process.env.PUBLIC_URL}/iniciopro.png`,
           style: { 
             width: "50%", 
             height: "300px",
@@ -100,7 +100,7 @@ const Projects = () => {
           },
           className: "custom-size-image"
         },
-        "/mantencionpro-mobile.jpeg"
+        `${process.env.PUBLIC_URL}/mantencionpro-mobile.jpeg`
       ],
       fullDescription: "Esta aplicación permite gestionar el mantenimiento de vehículos de transporte de manera eficiente. Incluye seguimiento de servicios, recordatorios automáticos, historial de mantenimiento y generación de reportes. La interfaz es intuitiva y responsive, adaptándose a diferentes dispositivos.",
       features: [
