@@ -19,7 +19,7 @@ function App() {
     const animateOnScroll = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');
       
-      const observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animated');
@@ -32,9 +32,11 @@ function App() {
                 bar.style.width = `${width}%`;
               }, 200);
             });
+
+            obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.15 });
       
       elements.forEach(element => {
         observer.observe(element);

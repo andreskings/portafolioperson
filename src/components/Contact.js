@@ -88,8 +88,12 @@ const Contact = () => {
               </div>
               <div className="contact-info-content">
                 <p>LinkedIn</p>
-                <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">
-                  linkedin.com/in/tuusuario
+                <a
+                  href="https://www.linkedin.com/in/v%C3%ADctor-san-martin-4181b62a5/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  linkedin.com/in/víctor-san-martin-4181b62a5
                 </a>
               </div>
             </div>
@@ -102,8 +106,8 @@ const Contact = () => {
               </div>
               <div className="contact-info-content">
                 <p>GitHub</p>
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                  github.com/tuusuario
+                <a href="https://github.com/andreskings" target="_blank" rel="noopener noreferrer">
+                  github.com/andreskings
                 </a>
               </div>
             </div>
