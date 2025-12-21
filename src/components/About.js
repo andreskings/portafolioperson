@@ -23,7 +23,7 @@ const About = () => {
 
         <div className="about-layout">
           <div className="about-image card-floating animate-on-scroll">
-            <img src={`${process.env.PUBLIC_URL}/yo.png`} alt="Retrato de Victor San Martin" />
+            <img src={`${process.env.PUBLIC_URL}/yoblan.jpeg`} alt="Retrato de Victor San Martin" />
 
             <div className="photo-label">
               <span>Victor San Martin</span>
