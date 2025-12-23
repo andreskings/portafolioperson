@@ -1,32 +1,96 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const certificates = [
+  {
+    title: 'Fundamentos de Python I',
+    track: 'Python',
+    organization: 'Programa Python',
+    date: '2025',
+    image: `${process.env.PUBLIC_URL}/certificado_python.png`,
+  },
+  {
+    title: 'Fundamentos de Python II',
+    track: 'Python',
+    organization: 'Programa Python',
+    date: '2025',
+    image: `${process.env.PUBLIC_URL}/certificado_py2.png`,
+  },
+  {
+    title: 'Fundamentos de JavaScript I',
+    track: 'JavaScript',
+    organization: 'Programa JavaScript',
+    date: '2025',
+    image: `${process.env.PUBLIC_URL}/certificado_java1.png`,
+  },
+  {
+    title: 'Fundamentos de JavaScript II',
+    track: 'JavaScript',
+    organization: 'Programa JavaScript',
+    date: '2025',
+    image: `${process.env.PUBLIC_URL}/certificado_js2.png`,
+  },
+];
 
 const Certificates = () => {
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+
+  const openModal = (certificate) => setSelectedCertificate(certificate);
+  const closeModal = () => setSelectedCertificate(null);
+
+  const handleKeyDown = (event, certificate) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openModal(certificate);
+    }
+  };
+
   return (
     <section id="certificates" className="section section-muted">
       <div className="container">
         <div className="section-header">
           <p className="eyebrow">Formación & certificaciones</p>
-          <h2 className="section-title">En proceso</h2>
+          <h2 className="section-title">Certificados destacados</h2>
           <p className="section-description">
-            Estoy trabajando en nuevas certificaciones relacionadas a Python, FastAPI, React y herramientas de automatización.
-            Iré actualizando esta sección a medida que complete cada programa.
+            Cuatro diplomas recientes que sostienen mi práctica en Python y JavaScript.
           </p>
         </div>
 
-        <div className="empty-state">
-          <div className="empty-state-content">
-            <div className="empty-state-icon">
-              <svg width="64" height="64" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-            </div>
-            <h3 className="empty-state-title">Certificados en progreso</h3>
-            <p className="empty-state-description">
-              Están en camino cursos y workshops para reforzar mi base. Pronto compartiré los diplomas y enlaces correspondientes.
-            </p>
-          </div>
+        <div className="certificates-grid">
+          {certificates.map((item) => (
+            <article
+              key={item.title}
+              className="certificate-card animate-on-scroll"
+              role="button"
+              tabIndex={0}
+              onClick={() => openModal(item)}
+              onKeyDown={(event) => handleKeyDown(event, item)}
+            >
+              <div className="certificate-image">
+                <img src={item.image} alt={item.title} />
+                <span className="certificate-date">{item.date}</span>
+                <span className="certificate-track">{item.track}</span>
+              </div>
+
+              <div className="certificate-content">
+                <h3 className="certificate-title">{item.title}</h3>
+                <p className="certificate-organization">{item.organization}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
+
+      {selectedCertificate && (
+        <div className="certificate-modal" onClick={closeModal}>
+          <div className="certificate-modal-content" onClick={(event) => event.stopPropagation()}>
+            <button className="certificate-modal-close" onClick={closeModal} aria-label="Cerrar certificado">
+              &times;
+            </button>
+            <img src={selectedCertificate.image} alt={selectedCertificate.title} />
+            <h4>{selectedCertificate.title}</h4>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

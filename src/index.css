@@ -706,6 +706,19 @@ img {
   border-radius: 0.25rem;
 }
 
+.certificate-track {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(15, 23, 42, 0.9);
+  color: white;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
 .certificate-content {
   padding: 1rem;
 }
@@ -735,6 +748,54 @@ img {
 .certificate-link:hover {
   color: var(--primary-dark);
   text-decoration: underline;
+}
+
+.certificate-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 2rem;
+}
+
+.certificate-modal-content {
+  position: relative;
+  max-width: min(900px, 90vw);
+  max-height: 90vh;
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.certificate-modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.certificate-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.certificate-modal-close:hover {
+  color: var(--dark);
 }
 
 /* Contact section */
